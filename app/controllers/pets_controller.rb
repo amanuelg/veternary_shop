@@ -15,12 +15,12 @@ class PetsController < ApplicationController
   # GET /pets/new
   def new
     @pet = Pet.new
-    @customer = Customer.all
+    @customers = Customer.all
   end
 
   # GET /pets/1/edit
   def edit
-    @customer = Customer.all
+    @customers = Customer.all
     @pet.last_visit_date = @pet.last_visit_date.strftime("%m/%d/%Y %I:%M %p")
   end
 
@@ -28,7 +28,7 @@ class PetsController < ApplicationController
   # POST /pets.json
   def create
     @pet = Pet.new(pet_params)
-
+    @customers = Customer.all
     respond_to do |format|
       if @pet.save
         format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
@@ -68,6 +68,7 @@ class PetsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pet
       @pet = Pet.find(params[:id])
+      @customers = Customer.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

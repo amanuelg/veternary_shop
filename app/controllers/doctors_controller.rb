@@ -75,7 +75,7 @@ class DoctorsController < ApplicationController
       if @doctor
         params.require(:doctor).permit(:name, :address, :city, :state, :zip_code, :schoo_graduated, :years_in_practice)
       else
-        params.require(:user).permit(:email, :password, :doctor_attributes=> [:name, :address, :city, :state, :zip_code, :schoo_graduated, :years_in_practice])
+        params.require(:user).permit(:email, :password,:user_type, :doctor_attributes=> [:name, :address, :city, :state, :zip_code, :schoo_graduated, :years_in_practice])
       end
     end
 end

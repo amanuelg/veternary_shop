@@ -31,7 +31,10 @@ class AppointmentsController < ApplicationController
   # POST /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
-
+    @pets = Pet.all
+    @doctors = Doctor.all
+    @customers = Customer.all
+    
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
@@ -73,7 +76,7 @@ class AppointmentsController < ApplicationController
         @pets = @customer.pets
         if @pets.count <= 0
           flash[:notice] = "there is no pet registered on this account"
-          redirect_to root
+          redirect_to root_path
         else
           @appointments = @pets.collect{|x| x.appointments}.flatten
           logger.info("-----#{@appointments.inspect}")
@@ -87,6 +90,9 @@ class AppointmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_appointment
       @appointment = Appointment.find(params[:id])
+      @pets = Pet.all
+      @doctors = Doctor.all
+      @customers = Customer.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

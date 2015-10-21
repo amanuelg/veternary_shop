@@ -2,68 +2,14 @@
 <div class="form_horizontal well" >
 <legend>Appointments</legend>
 <%= bootstrap_form_for(@appointment) do |f| %>
-  
-  <div class="form-group">
-      <div class="row">
-        <div class="col col-sm-10">
-        <div class="col col-sm-8">
-          <%= f.collection_select(:pet_id, @pets, :id, :name , {prompt: "please choose pet "},{ class: "selectpicker" } )%>
-        </div>
-        </div>
-      </div>
-  </div>
-  
-  <div class="form-group">
-      <div class="row">
-        <div class="col col-sm-10">
-        <div class="col col-sm-8">
-          <%= f.collection_select(:doctor_id, @doctors, :id, :name , class: "form-control")%>
-        </div>
-        </div>
-      </div>
-  </div>
-  
-  <div class="form-group">
-      <div class="row">
-        <div class="col col-sm-10">
-        <div class="col col-sm-8">
-          <%= f.collection_select(:customer_id, @customers, :id, :full_name , class: "dropdown")%>
-        </div>
-        </div>
-  </div>
-  
-  </div>
-  <div class="form-group">
-      <div class="row">
-        <div class="col col-sm-10">
-        <div class="col col-sm-8">
-          <%= f.check_box :reminder, class: "form-control" %>
-        </div>
-        </div>
-      </div>
-  </div>
-  
-  <div class="form-group">
-        <div class="row">
-            <div class="col col-sm-10">
-                <div class='col col-sm-8' >
-                    <%= f.text_field :date_of_visit, class: "form-control", id: 'datetimepicker_visit' %>
-                </div>
-            </div>
-        </div>
-    </div>
-  
-  <div class="form-group">
-      <div class="row">
-        <div class="col col-sm-10">
-        <div class="col col-sm-8">
-          <%= f.text_field :reason_for_visit, class: "form-control" %>
-        </div>
-        </div>
-      </div>
-  </div>
-  
-  <div class="form-group col-sm-4">
+    <%= f.collection_select(:pet_id, @pets, :id, :name , {prompt: "please choose pet "},{ class: "selectpicker" } )%>
+    <%= f.collection_select(:doctor_id, @doctors, :id, :name , class: "form-control")%>
+    <%= f.collection_select(:customer_id, @customers, :id, :full_name , class: "dropdown")%>
+    <%= f.check_box :reminder, class: "form-control" %>
+    <%= f.text_field :date_of_visit, class: "form-control", id: 'datetimepicker_visit' %>
+    <%= f.text_field :reason_for_visit, class: "form-control" %>
+    
+    <div class="form-group col-sm-4">
       <%= f.submit @appointment.new_record? ? 'Create Appointment' : 'Update Appointment', class: 'btn btn-success', id: 'appointment_sub' %>
     </div>
 <% end %>
