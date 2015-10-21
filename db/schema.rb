@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021052413) do
+ActiveRecord::Schema.define(version: 20151021163741) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "doctor_id"
