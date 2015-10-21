@@ -1,0 +1,23 @@
+<%= link_to "New Doctor", new_doctor_path, class: "btn btn-link" %>
+<p id="notice"><%= notice %></p>
+    <% @doctors.each do |doctor| %>
+        <div class="well row">
+        <div class="col-sm-6" style= "border-right: medium solid #2A4E6C;">
+            <h3><%= doctor.name %></h3>
+            <p>Graduated From: <%= doctor.schoo_graduated%><br>  
+                Experience: <%= doctor.years_in_practice %> Years<br>
+            <%= link_to 'Edit', edit_doctor_path(doctor) %> |<%= link_to 'Destroy', {:action => "destroy", :id => doctor.user_id}, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div>
+        <div class="col-sm-6">
+            <h4>Contact</h4>
+            <p><%= doctor.address %><br/>
+                <%= doctor.city %>, <%= doctor.state %>, <%= doctor.zip_code %></p>
+        </div>
+        
+      </div>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

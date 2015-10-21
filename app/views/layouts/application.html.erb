@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <header>
+    <%= render 'layouts/header' %>
+  </header>
+  
+  
+<div class="container">
+  <%= render 'layouts/messages' %>
+  <div class="row">
+    <div class="col-md-3 pull-left">
+      <%= render 'layouts/left_navigation' %>
+    </div>
+    <div class="col-md-9 pull-right">
+        <%= yield %>    
+    </div>
+  </div>
+  
+</div>
+</body>
+</html>

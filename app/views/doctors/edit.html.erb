@@ -1,0 +1,86 @@
+<h1>Editing Doctor</h1>
+
+<%= form_for(@doctor) do |f| %>
+  
+  <div class="form-group">
+      <div class="row">
+        <div class="col col-sm-10">
+          <%= f.label :name, class: "col-sm-3 text-right" %>
+        <div class="col col-sm-8">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        </div>
+      </div>
+  </div>
+  
+  <div class="form-group">
+      <div class="row">
+        <div class="col col-sm-10">
+          <%= f.label :address, class: "col-sm-3 text-right" %>
+        <div class="col col-sm-8">
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+        </div>
+      </div>
+  </div>
+  
+  <div class="form-group">
+      <div class="row">
+        <div class="col col-sm-10">
+          <%= f.label :city, class: "col-sm-3 text-right" %>
+        <div class="col col-sm-8">
+          <%= f.text_field :city, class: "form-control " %>
+        </div>
+        </div>
+      </div>
+  </div>
+  <div class="form-group">
+      <div class="row">
+        <div class="col col-sm-10">
+          <%= f.label :state, class: "col-sm-3  text-right" %>
+        <div class="col col-sm-8">
+          <%= f.text_field :state, class: "form-control" %>
+        </div>
+        </div>
+      </div>
+  </div>
+  <div class="form-group">
+      <div class="row">
+        <div class="col col-sm-10">
+          <%= f.label :zip_code, class: "col-sm-3 text-right" %>
+        <div class="col col-sm-8">
+          <%= f.text_field :zip_code, class: "form-control" %>
+        </div>
+        </div>
+      </div>
+  </div>
+  <div class="form-group">
+      <div class="row">
+        <div class="col col-sm-10">
+          <%= f.label :schoo_graduated, class: "col-sm-3 text-right" %>
+        <div class="col col-sm-8">
+          <%= f.text_field :schoo_graduated, class: "form-control" %>
+        </div>
+        </div>
+      </div>
+  </div>
+  
+  <div class="form-group">
+      <div class="row">
+        <div class="col col-sm-10">
+          <%= f.label :years_in_practice, class: "col-sm-3 text-right" %>
+        <div class="col col-sm-8">
+          <%= f.text_field :years_in_practice, class: "form-control" %>
+        </div>
+        </div>
+      </div>
+  </div>
+  
+  <div class="form-group col-sm-4">
+      <%= f.submit 'Update Doctor', class: 'btn btn-success', id: 'appointment_sub' %>
+    </div>
+<% end %>
+</div>
+
+<%= link_to 'Show', @doctor %> |
+<%= link_to 'Back', doctors_path %>

@@ -1,0 +1,24 @@
+<div class="header">
+    <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div>
+            <h3>Veternary</h3>
+        </div>
+    </div>
+  </nav>
+    
+  <div class="container">
+    <img src="/assets/logo_left.png" alt="logo right" height="150" width="400">
+    <div id="login_status" class= "nav-item pull-right">
+        <% if logged_in? %>
+            <h4>Welcome: <%= current_user.email %><br><br/>
+                <%= link_to "Logout", logout_path, class: "btn btn-danger" %>
+            </h4>
+        <% else %>
+            <h4><%= link_to "Sign Up", register_path %> | <%= link_to "Login", login_path %></h4>
+        <% end %>
+    </div>
+  </div>
+  <hr color="black"/>
+  <hr/>
+</div>

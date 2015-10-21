@@ -1,0 +1,94 @@
+<div class="form_horizontal well" >
+<legend>New Pet</legend>
+<%= form_for(@pet) do |f| %>
+  
+  <div class="form-group">
+      <div class="row">
+        <div class="col col-sm-10">
+          <%= f.label :name, class: "col-sm-3 text-right" %>
+        <div class="col col-sm-8">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        </div>
+      </div>
+  </div>
+  
+  <div class="form-group">
+      <div class="row">
+        <div class="col col-sm-10">
+          <%= f.label :pet_type, class: "col-sm-3 text-right" %>
+        <div class="col col-sm-8">
+          <%= f.select(:pet_type, options_for_select(Pet::TYPES), {prompt: true}, {class: "form-control"}) %>
+        </div>
+        </div>
+      </div>
+  </div>
+  
+  <div class="form-group">
+      <div class="row">
+        <div class="col col-sm-10">
+          <%= f.label :breed, class: "col-sm-3 text-right" %>
+        <div class="col col-sm-8">
+          <%= f.text_field :breed, class: "form-control" %>
+        </div>
+        </div>
+      </div>
+  </div>
+  
+  <div class="form-group">
+      <div class="row">
+        <div class="col col-sm-10">
+          <%= f.label :age, class: "col-sm-3 text-right" %>
+        <div class="col col-sm-8">
+          <%= f.text_field :age, class: "form-control" %>
+        </div>
+        </div>
+      </div>
+  </div>
+  
+  <div class="form-group">
+      <div class="row">
+        <div class="col col-sm-10">
+          <%= f.label :weight, class: "col-sm-3 text-right" %>
+        <div class="col col-sm-8">
+          <%= f.text_field :weight, class: "form-control" %>
+        </div>
+        </div>
+      </div>
+  </div>
+  
+  <div class="form-group">
+        <div class="row">
+            <div class="col col-sm-10">
+              <%= f.label :last_visit_date , class: "col col-sm-3 text-right" %>
+                <div class='col col-sm-8' >
+                    <%= f.text_field :last_visit_date, class: "form-control", id: 'datetimepicker_end' %>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  <div class="form-group">
+      <div class="row">
+        <div class="col col-sm-10">
+          <%= f.label :pet_owner, class: "col-sm-3 text-right" %>
+        <div class="col col-sm-8">
+          <%= f.collection_select(:customer_id, @customer, :id, :full_name , class: "selectpicker")%>
+
+        </div>
+        </div>
+      </div>
+  </div>
+  <div class="form-group col-sm-4">
+      <%= f.submit @pet.new_record? ? 'Create Pet' : 'Update Pet', class: 'btn btn-success', id: 'appointment_sub' %>
+    </div>
+<% end %>
+</div>
+
+<script>
+  $(document).ready(function () {
+                //set default value 
+                var start = $.now();
+                $('#datetimepicker_end').datetimepicker({minDate: start,useCurrent: false});
+        });
+</script>

@@ -1,0 +1,20 @@
+<div class="well">
+    <% if logged_in? %>
+    <div class="list-group">
+        <% if current_user.user_type == "admin" %>
+        <%= link_to "Add Doctors", doctors_path,class:"list-group-item" %>
+        <%= link_to "Create Receptionist", register_path,class:"list-group-item" %>
+        <%= link_to "Appointments", appointments_path,class:"list-group-item" %>
+        <% end %>
+        <% if current_user.user_type == "doctor" || current_user.user_type == "admin" %>
+        <%= link_to "Pets", pets_path,class:"list-group-item" %>
+        <% end %>
+        <% if current_user.user_type == "receptionist"%>
+        <%= link_to "Appointments", appointments_path,class:"list-group-item" %>
+        <% end %>
+        <% if logged_in? && current_user.user_type == "customer"%>
+            <%= link_to "View Appointments", {:controller => "appointments", :action => "appointments_search"}, class:"list-group-item" %>
+        <% end %>
+    </div>
+    <% end %>
+</div>

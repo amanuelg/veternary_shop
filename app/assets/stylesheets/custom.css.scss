@@ -1,0 +1,34 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap-datetimepicker';
+input, text_field, password_field{
+    width: 100%;
+    
+}
+
+input{
+    padding-right: 10px;
+}
+
+
+#login_status a{
+    
+}
+
+h4.price{
+    color: #A52A2A;
+}
+
+hr{
+    color: black;
+}
+
+.well{
+    background: #E6E6FA;
+}
+
+.navbar{
+    background-color: #2A4E6C;
+    color: white;
+}
+
